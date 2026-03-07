@@ -12,12 +12,24 @@ No installation needed. Everything runs in your browser.
 
 | Field | Value |
 |---|---|
+| Profile nameT-SQL | Bootcamp DB|
 | Server | `db` |
+|AuthenticationSQL | Login|
 | Database | `BootcampDB` |
 | Username | `sa` |
 | Password | `Bootcamp123!` |
 | Trust certificate | Yes |
 
+
+## If the connection fails, try this in the terminal:
+
+```bash
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - && \
+curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list && \
+sudo apt-get update && \
+sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18 unixodbc-dev && \
+/opt/mssql-tools18/bin/sqlcmd -S db -U sa -P 'Bootcamp123!' -C -i /workspaces/The-AI-Workshop-Bootcamp/seed.sql
+```
 ## 📚 Exercises
 
 - `week-01-select-basics.sql`
