@@ -1,58 +1,87 @@
-# T-SQL Bootcamp 🏥
+-- =============================================
+-- WEEK 1: SELECT Basics
+-- Database: BootcampDB
+-- =============================================
+-- HOW TO RUN: Highlight a query, press Ctrl+Shift+E
+-- =============================================
 
-A ready-to-run T-SQL learning environment using GitHub Codespaces — no installation required.
+USE BootcampDB;
+GO
 
-## ▶️ Open in Codespaces
+-- -----------------------------------------------
+-- EXERCISE 1: Retrieve all patients
+-- -----------------------------------------------
+-- Task: Select everything from the Patients table
+-- YOUR ANSWER:
 
-Click the green **Code** button → **Codespaces** tab → **Create codespace on main**
 
-Wait ~2 minutes for setup to complete, then open any file in the `exercises/` folder.
+-- -----------------------------------------------
+-- EXERCISE 2: Specific columns
+-- -----------------------------------------------
+-- Task: Select only FirstName, LastName and DateOfBirth
+-- YOUR ANSWER:
 
----
 
-## 🗄️ The Database
+-- -----------------------------------------------
+-- EXERCISE 3: Rename columns with aliases
+-- -----------------------------------------------
+-- Task: Select FirstName as "First Name", LastName as "Surname"
+-- YOUR ANSWER:
 
-We use **BootcampDB** — an NHS-inspired dataset with:
 
-| Table         | Description                              |
-|---------------|------------------------------------------|
-| `Patients`    | 10 fictional patients with NHS numbers   |
-| `Wards`       | 6 wards including Virtual Wards          |
-| `Admissions`  | Admission history (some still admitted)  |
-| `Observations`| Vital signs (BP, HR, SpO2, Temperature)  |
+-- -----------------------------------------------
+-- EXERCISE 4: Filter with WHERE
+-- -----------------------------------------------
+-- Task: Find all female patients
+-- YOUR ANSWER:
 
----
 
-## 📚 Exercises
+-- -----------------------------------------------
+-- EXERCISE 5: Filter with AND
+-- -----------------------------------------------
+-- Task: Find all female patients registered with Dr. Ahmed
+-- YOUR ANSWER:
 
-| File                              | Topic                          |
-|-----------------------------------|--------------------------------|
-| `week-01-select-basics.sql`       | SELECT, WHERE, ORDER BY, TOP   |
-| `week-02-filtering-functions.sql` | Date functions, GROUP BY, HAVING |
-| `week-03-joins.sql`               | INNER JOIN, LEFT JOIN, multi-table queries |
 
----
+-- -----------------------------------------------
+-- EXERCISE 6: Sort results
+-- -----------------------------------------------
+-- Task: List all patients ordered by LastName A-Z
+-- YOUR ANSWER:
 
-## ⌨️ How to Run Queries
 
-1. Open a `.sql` file from the `exercises/` folder
-2. Highlight the query you want to run
-3. Press **Ctrl+Shift+E** (or right-click → **Run Query**)
-4. Results appear in the panel below
+-- -----------------------------------------------
+-- EXERCISE 7: Limit rows
+-- -----------------------------------------------
+-- Task: Return only the first 5 patients (by PatientID)
+-- YOUR ANSWER:
 
----
 
-## 🔌 Database Connection
+-- -----------------------------------------------
+-- BONUS: Calculated column
+-- -----------------------------------------------
+-- Task: Show each patient's full name as a single column called "FullName"
+-- Hint: Use + to concatenate strings, and add a space between them
+-- YOUR ANSWER:
 
-The mssql extension is pre-configured. If prompted:
-- **Server:** `sqlserver`
-- **Database:** `BootcampDB`
-- **Username:** `sa`
-- **Password:** `Bootcamp123!`
-- **Trust server certificate:** Yes
 
----
+-- =============================================
+-- ANSWERS (scroll down only after trying!)
+-- =============================================
+/*
+Ex 1:  SELECT * FROM Patients;
 
-## 🆓 GitHub Free Tier
+Ex 2:  SELECT FirstName, LastName, DateOfBirth FROM Patients;
 
-Each GitHub account gets **60 hours/month** of free Codespace time — more than enough for a weekly bootcamp session. Always **stop your Codespace** after each session to preserve your hours (Codespaces menu → Stop).
+Ex 3:  SELECT FirstName AS [First Name], LastName AS Surname FROM Patients;
+
+Ex 4:  SELECT * FROM Patients WHERE Gender = 'Female';
+
+Ex 5:  SELECT * FROM Patients WHERE Gender = 'Female' AND RegisteredGP = 'Dr. Ahmed';
+
+Ex 6:  SELECT * FROM Patients ORDER BY LastName ASC;
+
+Ex 7:  SELECT TOP 5 * FROM Patients ORDER BY PatientID;
+
+BONUS: SELECT FirstName + ' ' + LastName AS FullName FROM Patients;
+*/
