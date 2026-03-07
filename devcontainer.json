@@ -1,0 +1,48 @@
+{
+  "name": "T-SQL Bootcamp",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/dotnet:2": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-mssql.mssql",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-mssql"
+      ],
+      "settings": {
+        "sqltools.connections": [
+          {
+            "name": "T-SQL Bootcamp DB",
+            "driver": "MSSQL",
+            "server": "localhost",
+            "port": 1433,
+            "database": "BootcampDB",
+            "username": "sa",
+            "password": "Bootcamp123!",
+            "trustServerCertificate": true
+          }
+        ],
+        "editor.fontSize": 14,
+        "editor.wordWrap": "on"
+      }
+    }
+  },
+
+  "onCreateCommand": "bash /workspaces/The-AI-Workshop-Bootcamp/setup/install-sqlserver.sh",
+  "postCreateCommand": "bash /workspaces/The-AI-Workshop-Bootcamp/setup/init-db.sh",
+
+  "forwardPorts": [1433],
+  "portsAttributes": {
+    "1433": {
+      "label": "SQL Server",
+      "onAutoForward": "silent"
+    }
+  },
+
+  "remoteUser": "root"
+}
