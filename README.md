@@ -12,7 +12,7 @@ No installation needed. Everything runs in your browser.
 
 | Field | Value |
 |---|---|
-| Profile nameT-SQL | Bootcamp DB|
+| Profile name | T-SQL Bootcamp DB|
 | Server | `db` |
 |Authentication | SQL Login|
 | Database | `BootcampDB` |
