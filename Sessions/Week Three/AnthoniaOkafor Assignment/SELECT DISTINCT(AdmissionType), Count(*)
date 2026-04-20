@@ -1,0 +1,9 @@
+/* Calculate the number of admissions
+for each combination of admission type and diagnosis,
+then return only the unique admission types
+ with their overall admission counts */
+
+
+SELECT DISTINCT(AdmissionType), Count(*)
+FROM [BootcampDB].[dbo].[Admissions]
+GROUP BY AdmissionType, Diagnosis;s
